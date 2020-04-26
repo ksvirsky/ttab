@@ -3,6 +3,8 @@
 Versioning complies with [semantic versioning (semver)](http://semver.org/).
 
 <!-- NOTE: An entry template for a new version is automatically added each time `make version` is called. Fill in changes afterwards. -->
+* **[v0.7.1](https://github.com/ksvirsky/xtab/compare/v0.7.1...v0.6.1)** (2020-04-26):
+  * [enchancement] Added support for Gnome Terminal. Renamed to xtab.
 
 * **[v0.6.1](https://github.com/mklement0/ttab/compare/v0.6.0...v0.6.1)** (2017-11-08):
   * [fix] macOS 10.13 (High Sierra compatibility), which makes `-G` work again.
@@ -20,15 +22,15 @@ Versioning complies with [semantic versioning (semver)](http://semver.org/).
 * **[v0.5.0](https://github.com/mklement0/ttab/compare/v0.4.0...v0.5.0)** (2016-10-01):
   * [new feature] `-q` now allows clearing the "screen" of the new tab after
      opening using `clear`, assuming any command (list) passed succeeded.
-  * [enhancement] A quoted multi-command shell command string can now be 
+  * [enhancement] A quoted multi-command shell command string can now be
     specified as a single - and only - operand, without having to precede with
-    an explicit `eval` command. 
+    an explicit `eval` command.
   * [behavior change] If no custom title is specified with `-t <title>`, no
     attempt is made anymore to auto-derive a meaningful tab title from the
     shell command specified, as there is no heuristic that works well in all
     cases.
   * [fix] [Issue #7](https://github.com/mklement0/ttab/issues/7): iTerm2
-    now also preserves the current working dir. when opening a new tab in the 
+    now also preserves the current working dir. when opening a new tab in the
     current window.
 
 * **[v0.4.0](https://github.com/mklement0/ttab/compare/v0.3.1...v0.4.0)** (2016-09-13):

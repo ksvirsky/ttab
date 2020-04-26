@@ -1,14 +1,14 @@
 #!/usr/bin/env osascript
 
-set ttabBin to "../bin/ttab"
+set ttabBin to "../bin/xtab"
 
 # Load the utility script.
 set util to load script (do shell script "dirname -- " & quoted form of POSIX path of (path to me)) & "/.fixtures/utils.scpt"
 
 tell application "Terminal"
-  
+
   delay 2 # !! unfortunately, it can take a bit before the window count catches up from the previous test.
-    
+
   set winCountBefore to count of windows
 
   # Create tab in new window.

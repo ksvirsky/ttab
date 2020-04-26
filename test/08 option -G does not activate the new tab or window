@@ -3,28 +3,28 @@
 # Note: We only test the aspect of not activating the new tab *within* Terminal here.
 #       We're content to test the non-activation of Terminal itself in the -g test.
 
-set ttabBin to "../bin/ttab"
+set ttabBin to "../bin/xtab"
 
 # Load the utility script.
 set util to load script (do shell script "dirname -- " & quoted form of POSIX path of (path to me)) & "/.fixtures/utils.scpt"
 
 # 1st test: create tab in *front* window and ensure the new tab doesn't become (technically: stay) the selected one.
 tell application "Terminal" # 's front window
-    
+
   set tabCountBefore to util's getTabCount()
   set thisTab to util's getActiveTab()
 
   # Create tab in background.
   do shell script ttabBin & " -G"
- 
+
   # !! Sleep a little to makes sure that the newly created tab is reflected
-  # !! in `(count of tabs)` below. 
+  # !! in `(count of tabs)` below.
   delay 3
- 
+
   if (util's getTabCount()) = tabCountBefore then error "Failed to create tab in front window; still-current tab count: " & (count of tabs of it)
 
   # Ensure that the original tab is the selected  one (again)
-  if not util's getActiveTab() is thisTab then    
+  if not util's getActiveTab() is thisTab then
     util's setActiveTab(thisTab) # Re-select the previously active tab so that the error message shows.
     error "The originating tab unexpectedly did not remain the selected one."
   end if
@@ -41,7 +41,7 @@ end tell
 
 # 2nd test: create tab in *new* window and ensure the new tab window doesn't become (technically: stay) active.
 tell application "Terminal"
-    
+
   # !! Sadly, we must give the above `do script "exit"` some time before
   # !! the window count goes down.
   # !! Also note that on macOS 10.13+ the number of windows is the number of tabs across all actual windows.
@@ -58,7 +58,7 @@ tell application "Terminal"
 
   set newWin to window 2
 
-  if not frontmost of thisWin then 
+  if not frontmost of thisWin then
     set frontmost of thisWin to true
     error "This window unexpectedly did not remain the front window."
   end if

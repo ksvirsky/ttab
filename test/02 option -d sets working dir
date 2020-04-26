@@ -1,26 +1,26 @@
 #!/usr/bin/env osascript
 
-# Note: For most tests, we create the new tab in the front window, both because that is ttab's core feature (a simple `do script` without a target will open a tab in a new window).
+# Note: For most tests, we create the new tab in the front window, both because that is xtab's core feature (a simple `do script` without a target will open a tab in a new window).
 #       Also, opening new tabs in the front window is less visually disruptive.
 #       Note that while the tests terminate the new tab's shell, the tab itself may stay open, depending on its settings.
 
-set ttabBin to "../bin/ttab"
+set ttabBin to "../bin/xtab"
 
 # Load the utility script.
 set util to load script (do shell script "dirname -- " & quoted form of POSIX path of (path to me)) & "/.fixtures/utils.scpt"
 
 tell application "Terminal"'s front window
-    
+
   set tabCountBefore to util's getTabCount()
   set thisTab to util's getActiveTab()
-  
+
   set workingDir to "/Library/Application Support"
-  
+
   # Create tab with specified working dir.
   do shell script ttabBin & " -d " & quoted form of workingDir
-  
+
   if not (util's getTabCount()) > tabCountBefore then error "Failed to create tab in front window."
-  
+
   # Ensure that the desired working directory has been set.
 
   # Wait till tab has finished starting up.
@@ -28,8 +28,8 @@ tell application "Terminal"'s front window
 
   do script "pwd >/tmp/_ttab_test_tmpout" in selected tab
 
-  # !! `do script` is apparently asynchronous, so we must wait a little 
-  # !! to give the above command time to execute.  
+  # !! `do script` is apparently asynchronous, so we must wait a little
+  # !! to give the above command time to execute.
   delay 1
 
   try
@@ -42,9 +42,9 @@ tell application "Terminal"'s front window
   # Tabs don't understand `close`, but `do script "exit"` is preferable anyway (assuming the settings close the tab once the shell exits),
   # because it waits for the tab to be ready to process the command.
   do script "exit" in util's getActiveTab()
-  
+
   util's setActiveTab(thisTab) # Re-select the previously active tab
-  
+
 end tell
 
 return

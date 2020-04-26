@@ -1,13 +1,13 @@
 #!/usr/bin/env osascript
 
-set ttabBin to "../bin/ttab"
+set ttabBin to "../bin/xtab"
 
 # Load the utility script.
 set util to load script (do shell script "dirname -- " & quoted form of POSIX path of (path to me)) & "/.fixtures/utils.scpt"
 
 # 1st test: create tab in *front* window and ensure that Terminal doesn't activate (technically: stay activated) in the process.
 tell application "Terminal"'s front window
-    
+
   set tabCountBefore to util's getTabCount()
   set thisTab to util's getActiveTab()
 
@@ -36,7 +36,7 @@ end tell
 
 # 2nd test: create tab in *new* window and ensure that Terminal doesn't activate (technically: stay activated) in the process.
 tell application "Terminal"
-    
+
   set winCountBefore to count of windows
 
   util's syncActivate("Finder")

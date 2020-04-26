@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ttabBin="../bin/ttab"
+ttabBin="../bin/xtab"
 
 [[ -d /Applications/iTerm.app ]] || { echo "WARNING: Cannot test option -a, because iTerm2 appears not to be installed." >&2; exit 0; }
 

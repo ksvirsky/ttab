@@ -8,12 +8,12 @@
 # ---
 PATH=${PWD%%/test*}/bin:$PATH
 
-# Execute your tests as shell commands below. 
+# Execute your tests as shell commands below.
 # An exit code of zero signals success, any other code signals an error
 # and causes this test to fail.
 # See https://github.com/tlevine/urchin.
 
-ttab --version | grep -Ew 'v?[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+' && exit 0
+xtab --version | grep -Ew 'v?[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+' && exit 0
 
 echo "ERROR: No semver-compliant version number detected in the output." >&2
 exit 1

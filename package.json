@@ -1,23 +1,23 @@
 {
-  "name": "ttab",
-  "description": "OSX CLI for opening a new terminal tab/window, optionally with a command to execute and/or display settings",
+  "name": "xtab",
+  "description": "OSX/Gnome Terminal CLI for opening a new terminal tab/window, optionally with a command to execute and/or display settings",
   "private": false,
-  "version": "0.6.1",
+  "version": "0.7.1",
   "os": [
     "darwin",
     "linux"
   ],
   "preferGlobal": true,
   "bin": {
-    "ttab": "bin/ttab"
+    "xtab": "bin/xtab"
   },
-  "homepage": "https://github.com/mklement0/ttab",
+  "homepage": "https://github.com/ksvirsky/xtab",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mklement0/ttab.git"
+    "url": "https://github.com/ksvirsky/xtab.git"
   },
   "bugs": {
-    "url": "https://github.com/mklement0/ttab/issues"
+    "url": "https://github.com/ksvirsky/xtab/issues"
   },
   "scripts": {
     "test": "make test"
@@ -35,7 +35,7 @@
     "ubuntu",
     "gnome-terminal"
   ],
-  "man": "./man/ttab.1",
+  "man": "./man/xtab.1",
   "directories": {
     "doc": "./doc"
   },

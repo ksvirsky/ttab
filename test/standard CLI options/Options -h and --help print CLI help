@@ -8,11 +8,11 @@
 # ---
 PATH=${PWD%%/test*}/bin:$PATH
 
-# Execute your tests as shell commands below. 
+# Execute your tests as shell commands below.
 # An exit code of zero signals success, any other code signals an error
 # and causes this test to fail.
 # See https://github.com/tlevine/urchin.
 
-ttab -h | fgrep -qw 'ttab' || exit
+xtab -h | fgrep -qw 'xtab' || exit
 
-ttab --help | fgrep -qw 'ttab' || exit
+xtab --help | fgrep -qw 'xtab' || exit

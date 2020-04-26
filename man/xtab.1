@@ -1,23 +1,25 @@
-.TH "TTAB" "1" "November 2017" "v0.6.1" ""
+.TH "XTAB" "26" "April 2020" "v0.7.1" ""
 .SH "NAME"
-\fBttab\fR \- open a new Terminal\.app / iTerm\.app tab or window
+\fBxtab\fR \- open a new Terminal\.app / iTerm\.app / Gnome Termninal tab or window
 .SH SYNOPSIS
 .P
 Opens a new terminal tab or window in OS X's Terminal application or iTerm2\.
 .P
 .RS 2
 .nf
-ttab [\-w] [\-s <settings>] [\-t <title>] [\-q] [\-g|\-G] [\-d <dir>] [<cmd> \.\.\.]
+xtab [\-w] [\-s <settings>] [\-t <title>] [\-q] [\-g|\-G] [\-d <dir>] [<cmd> \.\.\.]
 
 \-w                  open new tab in new terminal window
 \-s <settings>       assign a settings set (profile)
 \-t <title>          specify title for new tab
 \-q                  clear the new tab's screen
 \-g                  create tab in background (don't activate Terminal/iTerm)
+                     for gnome-terminal it opens tab in background without stealing focus
 \-G                  create tab in background and don't activate new tab
+                     for gnome-terminal it doesn't open any tab/window
 \-d <dir>            specify working directory; \-d '' disables inheriting
                     the current dir\.
-\-a Terminal|iTerm2  open tab or window in Terminal\.app / iTerm2  
+\-a Terminal|iTerm2  open tab or window in Terminal\.app / iTerm2
 <cmd> \.\.\.           command to execute in the new tab
 "<cmd> \.\.\.; \.\.\."    multi\-command command line (passed as single operand)
 .fi
@@ -26,7 +28,7 @@ ttab [\-w] [\-s <settings>] [\-t <title>] [\-q] [\-g|\-G] [\-d <dir>] [<cmd> \.\
 Standard options: \fB\-\-help\fP, \fB\-\-man\fP, \fB\-\-version\fP, \fB\-\-home\fP
 .SH DESCRIPTION
 .P
-\fBttab\fP opens a new Terminal or iTerm2 tab with a variety of options,
+\fBxtab\fP opens a new Terminal or iTerm2 tab with a variety of options,
 .br
 including executing a command in the new tab, assigning a title and working
 .br
@@ -174,7 +176,7 @@ All standard options provide information only\.
 .IP \(bu 2
 \fB\-\-man\fP
 .br
- Displays this manual page, which is a helpful alternative to using \fBman\fP, 
+ Displays this manual page, which is a helpful alternative to using \fBman\fP,
  if the manual page isn't installed\.
 .IP \(bu 2
 \fB\-\-version\fP
@@ -190,37 +192,37 @@ All standard options provide information only\.
 .P
 For license information and more, visit this utility's home page by running
 .br
-\fBttab \-\-home\fP\|\.
+\fBxtab \-\-home\fP\|\.
 .SH EXAMPLES
 .P
 .RS 2
 .nf
 # Open new tab in current terminal window:
-ttab
+xtab
 
 # Open new tab in new terminal window:
-ttab \-w
+xtab \-w
 
 # Open new tab with title 'Green' using settings (profile) 'Grass':
-ttab \-t Green \-s Grass  
+xtab \-t Green \-s Grass
 
 # Open new tab and execute a command in it:
-ttab ls \-l "$HOME/Library/Application Support"
+xtab ls \-l "$HOME/Library/Application Support"
 
 # Open new tab with specified working dir\. and execute a command in it:
-ttab \-d "$HOME/Library/Application Support" ls \-l
+xtab \-d "$HOME/Library/Application Support" ls \-l
 
 # Execute a command and exit\.
 # If configured via the default profile, also close the tab\.
-ttab exec /path/to/someprogram arg1 arg2
+xtab exec /path/to/someprogram arg1 arg2
 
-# Pass a multi\-command string as a single, quoted string, wait for a  
+# Pass a multi\-command string as a single, quoted string, wait for a
 # keystroke, then exit\.
-ttab 'ls "$HOME/Library/Application Support";
+xtab 'ls "$HOME/Library/Application Support";
                             echo Press any key to exit; read \-rsn 1; exit'
 
 # Create a new tab explicitly in iTerm2\.
-ttab \-a iTerm2 echo "Hi from iTerm2\."
+xtab \-a iTerm2 echo "Hi from iTerm2\."
 .fi
 .RE
 
