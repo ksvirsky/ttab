@@ -2,7 +2,7 @@ class Ttab < Formula
   desc "CLI for programmatically opening tabs/windows in Terminal or iTerm"
   homepage "https://github.com/ksvirsky/xtab"
   url "https://github.com/ksvirsky/xtab/archive/v0.7.1.tar.gz"
-  sha256 "5ccfb01c8798bcc78de09ffaeb586eddd5b93166ddf6101167ac9b3202c6e5e1"
+  sha256 "663f7028c2a6f280add92777338bf763fcdc48de"
 
   def install
     bin.install "bin/xtab"
